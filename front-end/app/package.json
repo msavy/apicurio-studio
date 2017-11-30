@@ -9,7 +9,9 @@
   },
   "scripts": {
     "compile": "tsc -p ./tsconfig.json",
-    "start": "concurrently \"tsc -w\" \"watch-less -d ./studio -e .css\" \"watch-less -d ./assets -e .css\" \"lite-server\""
+    "start": "concurrently \"tsc -w\" \"watch-less -d ./studio -e .css\" \"watch-less -d ./assets -e .css\" \"lite-server\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@angular/common": "4.3.6",
@@ -32,14 +34,15 @@
     "systemjs": "0.19.41",
     "zone.js": "0.8.17",
     "bootstrap": "3.3.7",
-    "patternfly" : "3.27.1",
+    "patternfly": "3.27.1",
     "ngx-bootstrap": "1.9.3",
     "ng2-ace-editor": "0.2.5",
     "buffer": "5.0.5",
     "brace": "0.9.1",
     "w3c-blob": "0.0.1",
     "base64-js": "1.2.0",
-    "ieee754": "1.1.8"
+    "ieee754": "1.1.8",
+    "snyk": "^1.52.1"
   },
   "devDependencies": {
     "@types/yamljs": "0.2.30",
@@ -58,6 +61,7 @@
     "systemjs-builder": "0.15.34",
     "typescript": "2.1.4",
     "watch-less": "0.0.4"
-  }
+  },
+  "snyk": true
 }
 
