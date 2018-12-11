@@ -16,9 +16,9 @@
 
 package io.apicurio.hub.core.config;
 
-import javax.enterprise.context.ApplicationScoped;
-
 import io.apicurio.studio.shared.config.Configuration;
+
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * @author eric.wittmann@gmail.com
@@ -55,6 +55,10 @@ public class HubConfiguration extends Configuration {
 
     private static final String BITBUCKET_API_URL_ENV = "APICURIO_BITBUCKET_API_URL";
     private static final String BITBUCKET_API_URL_SYSPROP = "apicurio.hub.bitbucket.api";
+
+    private static final String DISTRIBUTED_SESSION_ENV = "APICURIO_HUB_DISTRIBUTED_SESSION_TYPE";
+    private static final String DISTRIBUTED_SESSION_SYSPROP = "apicurio.hub.distributed.session.type";
+
 
     /**
      * @return the configured JDBC type (default: h2)
@@ -125,5 +129,12 @@ public class HubConfiguration extends Configuration {
     public String getBitbucketApiUrl() {
         return getConfigurationProperty(BITBUCKET_API_URL_ENV, BITBUCKET_API_URL_SYSPROP, "https://api.bitbucket.org/2.0");
     }
-    
+
+    /**
+     * @return the configured distributed session type
+     */
+    public String getDistributedSessionType() {
+        return getConfigurationProperty(DISTRIBUTED_SESSION_ENV, DISTRIBUTED_SESSION_SYSPROP, "noop");
+    }
+
 }
